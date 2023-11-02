@@ -35,9 +35,9 @@ nombres de funciones tienen al final a que libreria pertenecen.
 */
 
 /*variables*/
-int velocidad_motor;
-int velocidad_motor_B;
-int velocidad_motor_A;
+int velocidad_motor=0;
+int velocidad_motor_B = 0;
+int velocidad_motor_A = 0;
 
 long duration[4] = {0, 0, 0, 0};
 int distance[4] = {0, 0, 0, 0};
@@ -50,15 +50,17 @@ void setup() {
   declaracion_motores();
   declaracion_ultrasonido();
   declaracion_infrarojoDistancia();
+  declaracion_servo();
   // Begins serial communication
-  Serial.begin(9600);
+  //Serial.begin(9600);
 }
 
 void loop() {
 //que_hace();      
 
-//prueva_motores();
+prueva_motores();
 //prueva_infrarojoDistancia();
 //prueva_ultrasonido();
-  
+prueva_servo();
+ 
 }

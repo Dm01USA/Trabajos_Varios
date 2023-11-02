@@ -4,5 +4,12 @@
   #include <Servo.h>
 
   
+  void declaracion_servo();
 
-#endif
+  void pinzaAbierta_servo();
+
+  void pinzaCerrada_servo();
+
+  void prueva_servo();
+
+#endif 

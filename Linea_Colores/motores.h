@@ -1,13 +1,13 @@
 #ifndef motores_h
 #define motores_h
+  #define enableA 7
+  #define entrada1 6//DELANTE
+  #define entrada2 5//ATRAS
+  
 
-  #define entrada1 9//DELANTE
-  #define entrada2 10//ATRAS
-  #define enableA 3
-
-  #define entrada3 12//ATRAS
-  #define entrada4 13//DELANTE
-  #define enableB 11
+  #define entrada3 4//ATRAS
+  #define entrada4 3//DELANTE
+  #define enableB 2
 
   extern int velocidad_motor;
   extern int velocidad_motor_B;

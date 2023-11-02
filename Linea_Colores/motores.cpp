@@ -20,16 +20,16 @@ extern int velocidad_motor_A;
     switch (motor) {
       case 'A':
         if (velocidad_motor_A < 255) {
-          velocidad_motor_A = velocidad_motor_A + 1;
+          velocidad_motor_A = velocidad_motor_A + 10;
           analogWrite(enableA, velocidad_motor_A);
-          delay(1);
+          delay(10);
         }
         break;
       case 'B':
         if (velocidad_motor_B < 255) {
-          velocidad_motor_B = velocidad_motor_B + 1;
+          velocidad_motor_B = velocidad_motor_B + 10;
           analogWrite(enableB, velocidad_motor_B);
-          delay(1);
+          delay(10);
         }
         break;
       default:
@@ -43,16 +43,16 @@ extern int velocidad_motor_A;
     switch (motor) {
       case 'A':
         if (velocidad_motor_A > 0) {
-          velocidad_motor_A = velocidad_motor_A - 1;
+          velocidad_motor_A = velocidad_motor_A - 10;
           analogWrite(enableA, velocidad_motor_A);
-          delay(1);
+          delay(10);
         }
         break;
       case 'B':
         if (velocidad_motor_B > 0) {
-          velocidad_motor_B = velocidad_motor_B - 1;
+          velocidad_motor_B = velocidad_motor_B - 10;
           analogWrite(enableB, velocidad_motor_B);
-          delay(1);
+          delay(10);
         }
         break;
       default:
@@ -65,11 +65,11 @@ extern int velocidad_motor_A;
   {
     if(velocidad_motor_B > 0 && velocidad_motor_A > 0)
     {
-      velocidad_motor_A = velocidad_motor_A - 1;
-      velocidad_motor_B = velocidad_motor_B - 1;
+      velocidad_motor_A = velocidad_motor_A - 10;
+      velocidad_motor_B = velocidad_motor_B - 10;
       analogWrite(enableA, velocidad_motor_A );
       analogWrite(enableB, velocidad_motor_B );
-      delay(1);
+      delay(10);
     }  
   }
 
@@ -77,11 +77,11 @@ extern int velocidad_motor_A;
   {
     if(velocidad_motor_B < 255 && velocidad_motor_A < 255)
     {
-      velocidad_motor_B = velocidad_motor_B + 1;
-      velocidad_motor_A = velocidad_motor_A + 1;
+      velocidad_motor_B = velocidad_motor_B + 10;
+      velocidad_motor_A = velocidad_motor_A + 10;
       analogWrite(enableA, velocidad_motor_A );
       analogWrite(enableB, velocidad_motor_B );
-      delay(1);
+      delay(10);
     }
   }
 
@@ -129,38 +129,37 @@ extern int velocidad_motor_A;
   {
     if((velocidad_motor_A != velocidad_motor_B) && (velocidad_motor_A < velocidad_motor_B))
     {
-      velocidad_motor_B = velocidad_motor_B - 1;
+      velocidad_motor_B = velocidad_motor_B - 5;
     }
     else if((velocidad_motor_A != velocidad_motor_B) && (velocidad_motor_A > velocidad_motor_B))
     {
-      velocidad_motor_A = velocidad_motor_A - 1;
+      velocidad_motor_A = velocidad_motor_A - 5;
     }
   }
 
   void prueva_motores()
   {
-    for (; velocidad_motor_A != velocidad_motor_B;){igualar_motores();}
-    for (; velocidad_motor_A >= 0;){reduccion_motores();}
+    while(velocidad_motor_A > 0){reduccion_motores();}
     delante_motores();
-    for (;velocidad_motor_A <= 130;){aumento_motores();}
+    while(velocidad_motor_A <= 130){aumento_motores();}
     delay(1000);
 
-    for (; velocidad_motor_A >= 0;){reduccion_motores();}
+    while(velocidad_motor_A > 0){reduccion_motores();}
     atras_motores();
-    for (;velocidad_motor_A <= 130;){aumento_motores();}
+    while(velocidad_motor_A <= 130){aumento_motores();}
     delay(1000);
 
-    for (; velocidad_motor_A >= 0;){reduccion_motores();}
+    while(velocidad_motor_A > 0){reduccion_motores();}
     der_motores();
-    for (;velocidad_motor_A <= 130;){aumento_motores();}
+    while(velocidad_motor_A <= 130){aumento_motores();}
     delay(1000);
 
-    for (; velocidad_motor_A >= 0;){reduccion_motores();}
+    while(velocidad_motor_A > 0){reduccion_motores();}
     izq_motores();
-    for (;velocidad_motor_A <= 130;){aumento_motores();}
+    while(velocidad_motor_A <= 130){aumento_motores();}
     delay(1000);
 
-    for (; velocidad_motor_A >= 0;){reduccion_motores();}
+    while(velocidad_motor_A > 0){reduccion_motores();}
     apagado_motores();
-    delay(5000);
+    delay(1000);
   }
