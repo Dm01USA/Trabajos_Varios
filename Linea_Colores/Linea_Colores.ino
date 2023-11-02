@@ -36,6 +36,8 @@ nombres de funciones tienen al final a que libreria pertenecen.
 
 /*variables*/
 int velocidad_motor;
+int velocidad_motor_B;
+int velocidad_motor_A;
 
 long duration[4] = {0, 0, 0, 0};
 int distance[4] = {0, 0, 0, 0};

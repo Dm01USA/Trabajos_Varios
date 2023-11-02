@@ -10,6 +10,10 @@
   #define enableB 11
 
   extern int velocidad_motor;
+  extern int velocidad_motor_B;
+  extern int velocidad_motor_A;
+
+
 
 void declaracion_motores();
 
@@ -20,6 +24,18 @@ void atras_motores();
 void der_motores();
 
 void izq_motores();
+
+void apagado_motores();
+
+void reduccion_motores();
+
+void aumento_motores();
+
+void aumentoUno_motores(char motor);
+
+void reduccionUno_motores(char motor);
+
+void igualar_motores();
 
 void prueva_motores();
 
