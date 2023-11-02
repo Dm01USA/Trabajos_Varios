@@ -1,57 +1,22 @@
-/*********
-  Rui Santos
-  Complete project details at https://randomnerdtutorials.com  
-*********/
+#ifndef  noseQueHace_h
+#define noseQueHace_h
 
-// TCS230 or TCS3200 pins wiring to Arduino
-#define S0 4
-#define S1 5
-#define S2 6
-#define S3 7
-#define sensorOut 8
-
-// Stores frequency read by the photodiodes
-int redFrequency = 0;
-int greenFrequency = 0;
-int blueFrequency = 0;
-int entrada1= 9;
-int entrada2= 10;
-int enableA= 3;
-int entrada3= 12;
-int entrada4= 13;
-int enableB= 11;
-
-// Stores the red. green and blue colors
-int redColor = 0;
-int greenColor = 0;
-int blueColor = 0;
-
-void setup() {
-  // Setting the outputs
-  pinMode(S0, OUTPUT);
-  pinMode(S1, OUTPUT);
-  pinMode(S2, OUTPUT);
-  pinMode(S3, OUTPUT);
-  pinMode(entrada1,OUTPUT);
-  pinMode(entrada2,OUTPUT);
-  pinMode(enableA,OUTPUT);
-  pinMode(entrada3,OUTPUT);
-  pinMode(entrada4,OUTPUT);
-  pinMode(enableB,OUTPUT);
-
-  // Setting the sensorOut as an input
-  pinMode(sensorOut, INPUT);
+  #include "TCS230.h"
+  #include "motores.h"
   
-  // Setting frequency scaling to 20%
-  digitalWrite(S0,HIGH);
-  digitalWrite(S1,LOW);
-  
-  // Begins serial communication
-  Serial.begin(9600);
-}
+  // Stores frequency read by the photodiodes
+  int redFrequency = 0;
+  int greenFrequency = 0;
+  int blueFrequency = 0;
 
-void loop() {
-  // Setting RED (R) filtered photodiodes to be read
+  // Stores the red. green and blue colors
+  int redColor = 0;
+  int greenColor = 0;
+  int blueColor = 0;
+
+  void que_hace()
+  {
+    // Setting RED (R) filtered photodiodes to be read
   digitalWrite(S2,LOW);
   digitalWrite(S3,LOW);
   
@@ -102,21 +67,11 @@ void loop() {
   // Checks the current detected color and prints
   // a message in the serial monitor
   if(redColor >184 &&greenColor >184&&blueColor >400&&redColor <284 &&greenColor <284&&blueColor<520){
-    digitalWrite(entrada1,HIGH);
-    digitalWrite(entrada2,LOW);
-    digitalWrite(entrada3,HIGH);
-    digitalWrite(entrada4,LOW);
-    analogWrite(enableA,90);
-    analogWrite(enableB,0);
-
-  }else{
-   digitalWrite(entrada1,HIGH);
-    digitalWrite(entrada2,LOW);
-    digitalWrite(entrada3,HIGH);
-    digitalWrite(entrada4,LOW);
-    analogWrite(enableA,130);
-    analogWrite(enableB,130);
-
+    der_motores();
+  }
+  else
+  {
+    delante_motores();
   }
   /*
   if (redColor > greenColor && redColor > blueColor) {
@@ -140,5 +95,6 @@ void loop() {
   analogWrite(enableB, 0);
 }
 */
-  
-}
+  }
+
+#endif 
